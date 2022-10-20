@@ -1,5 +1,6 @@
 <?php
 
+use App\Contracts\Notification\Notification;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// 當使用 Notification 時，由於 AppServiceProvider 有綁定介面
+// $this->app->bind(Notification::class, BrowserNotification::class);
+// 因此使用服務的會是 BrowserNotification
+Route::get('/', function (Notification $notification) {
+    $notification->send();
+    return 'ok';
 });
