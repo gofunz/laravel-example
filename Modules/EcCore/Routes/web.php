@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InvoiceController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +11,12 @@ use App\Http\Controllers\InvoiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+use Illuminate\Support\Facades\Route;
+use Modules\EcCore\Http\Controllers\InvoiceController;
+
+Route::prefix('eccore')->group(function() {
+    Route::get('/', 'EcCoreController@index');
 });
 
-// 需要客制化的时候去 Override
-Route::get('/invoices', [InvoiceController::class, 'index']);
+
+// Route::get('/invoices', [InvoiceController::class, 'index']);

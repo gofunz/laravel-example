@@ -1,0 +1,11 @@
+{
+    "name": "EcCore",
+    "alias": "eccore",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\EcCore\\Providers\\EcCoreServiceProvider"
+    ],
+    "files": []
+}
